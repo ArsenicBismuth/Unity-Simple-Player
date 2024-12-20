@@ -7,7 +7,7 @@ using SFB;
 
 public class VideoManager : MonoBehaviour
 {
-    [SerializeField] VideoPlayer video;
+    public VideoPlayer video;
     [SerializeField] Slider videoSlider;
     [SerializeField] string videoName;
 
