@@ -38,5 +38,20 @@ public class FirstPersonCamera : MonoBehaviour {
             transform.localRotation = xQuat * yQuat;
             // Quaternions seem to rotate more consistently than EulerAngles. Sensitivity seemed to change slightly at certain degrees using Euler. transform.localEulerAngles = new Vector3(-rotation.y, rotation.x, 0);
         }
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f) {
+            Camera camera = GetComponent<Camera>();
+            if (camera == null) return;
+            
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+                // Shift + ScrollWheel change horizontal FOV
+                camera.aspect -= Input.GetAxis("Mouse ScrollWheel") * sensitivity * 0.1f;
+                camera.aspect = Mathf.Clamp(camera.aspect, 0.5f, 2f);
+            } else {
+                // ScrollWheel changes FOV (zoom)
+                camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * sensitivity * 10f;
+                camera.fieldOfView = Mathf.Clamp(camera.fieldOfView, 10f, 110f);
+            }
+        }
     }
 }
