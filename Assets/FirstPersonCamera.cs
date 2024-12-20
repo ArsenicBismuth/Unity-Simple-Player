@@ -22,7 +22,7 @@ public class FirstPersonCamera : MonoBehaviour {
     const string yAxis = "Mouse Y";
 
     void Update() {
-        if (Input.GetMouseButton(0)) { // Check if the left mouse button is held down
+        if (Input.GetMouseButton(1)) { // Check if the right mouse button is held down
             rotation.x -= Input.GetAxis(xAxis) * sensitivity; // Reverse direction
             rotation.y -= Input.GetAxis(yAxis) * sensitivity; // Reverse direction
             rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);

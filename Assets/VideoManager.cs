@@ -16,6 +16,13 @@ public class VideoManager : MonoBehaviour
         StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", "", false,
             (string[] paths) => { LoadVideo(paths); });
     }
+    
+    private void Update()
+    {
+        if (!video.isPrepared) return;
+        if (!videoSlider) return;
+        videoSlider.SetValueWithoutNotify((float)(video.time / video.length));
+    }
 
 
 
@@ -33,11 +40,6 @@ public class VideoManager : MonoBehaviour
     {
         Debug.Log("Video loaded.");
         PlayVideo();
-
-        if (videoSlider == null) return;
-        videoSlider.maxValue = (float) video.length;
-        videoSlider.minValue = 0;
-        videoSlider.value = 0;
     }
 
     //Methods for Buttons
@@ -60,15 +62,20 @@ public class VideoManager : MonoBehaviour
         Seek(0);
     }
 
-    public void Seek(float nTime)
+    public void Seek(float fraction)
     {
+        Debug.Log("Seeking...");
         if(!video.isPrepared) return ;
-        nTime = Mathf.Clamp01(nTime);
-        video.time = nTime * video.length;
+        fraction = Mathf.Clamp01(fraction);
+        video.time = fraction * video.length;
     }
 
-    public void SeekSlider()
+    public void SetVolume(float volume)
     {
-        video.time = (videoSlider.value * video.length);
+        video.SetDirectAudioVolume(0, volume);
+        if (volume != 0) 
+        {
+            video.SetDirectAudioMute(0, false);
+        }
     }
 }
