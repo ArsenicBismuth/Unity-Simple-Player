@@ -10,9 +10,9 @@ public class VideoManager : MonoBehaviour
     [SerializeField] Slider videoSlider;
     [SerializeField] string videoName;
 
-    public void LoadVideo()
+    public void Start()
     {
-        video.url = System.IO.Path.Combine(Application.streamingAssetsPath, name+".mp4");
+        // video.url = System.IO.Path.Combine(Application.streamingAssetsPath, name+".mp4");
         video.Prepare();
         video.prepareCompleted += Video_prepareCompleted;
     }
