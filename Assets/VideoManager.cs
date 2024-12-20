@@ -13,8 +13,7 @@ public class VideoManager : MonoBehaviour
 
     void Start()
     {
-        StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", "", false,
-            (string[] paths) => { LoadVideo(paths); });
+        OpenVideo();
     }
     
     private void Update()
@@ -27,6 +26,11 @@ public class VideoManager : MonoBehaviour
 
 
     // Video management
+    public void OpenVideo()
+    {
+        StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", "", false,
+            (string[] paths) => { LoadVideo(paths); });
+    }
     public void LoadVideo(string[] paths)
     {
         Debug.Log("Loading video...");
