@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using SFB;
 
 public class VideoManager : MonoBehaviour
 {
@@ -10,15 +11,27 @@ public class VideoManager : MonoBehaviour
     [SerializeField] Slider videoSlider;
     [SerializeField] string videoName;
 
-    public void Start()
+    void Start()
     {
-        // video.url = System.IO.Path.Combine(Application.streamingAssetsPath, name+".mp4");
+        StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", "", false,
+            (string[] paths) => { LoadVideo(paths); });
+    }
+
+
+
+    // Video management
+    public void LoadVideo(string[] paths)
+    {
+        Debug.Log("Loading video...");
+        if (paths.Length == 0) return;
+        video.url = System.IO.Path.Combine(Application.streamingAssetsPath, paths[0]);
         video.Prepare();
         video.prepareCompleted += Video_prepareCompleted;
     }
 
     private void Video_prepareCompleted(VideoPlayer source)
     {
+        Debug.Log("Video loaded.");
         PlayVideo();
 
         if (videoSlider == null) return;
