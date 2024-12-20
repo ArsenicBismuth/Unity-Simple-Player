@@ -150,10 +150,10 @@ RectTransform:
   - {fileID: 227440359}
   m_Father: {fileID: 973669319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -2.4999695, y: 0}
-  m_SizeDelta: {x: -24.999939, y: 0}
+  m_SizeDelta: {x: -24.999939, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &227440358
 GameObject:
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.25490198}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -618,10 +618,10 @@ RectTransform:
   - {fileID: 1129400123}
   m_Father: {fileID: 1154378536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: -60, y: 75}
+  m_SizeDelta: {x: 454, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715532071
 MonoBehaviour:
@@ -1195,7 +1195,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 330585545}
+  m_Camera: {fileID: 993588940}
   m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1587,7 +1587,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: 15.03}
+  m_SizeDelta: {x: -10, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981952983
 MonoBehaviour:
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uE768"
+  m_text: "\uE769"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b640a1706c2ffaa47bc30a97871cf3da, type: 2}
   m_sharedMaterial: {fileID: 5643552447474656999, guid: b640a1706c2ffaa47bc30a97871cf3da, type: 2}
