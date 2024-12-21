@@ -13,15 +13,20 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public string pauseText;
     [SerializeField] UnityEvent playFunc;
     [SerializeField] UnityEvent pauseFunc;
+    [SerializeField] UnityEvent openVideoFunc;
 
-    public bool isPlaying = true;
+    bool isPlaying = false;
 
     void Start()
     {
-        playBtnText.text = pauseText;
+        playBtnText.text = playText;
+    }
 
-        GetComponent<CanvasRenderer>().SetAlpha(0);
-        OnPointerExit(null);
+    public void OnOpenVideo()
+    {
+        openVideoFunc.Invoke();
+        isPlaying = true;
+        playBtnText.text = pauseText;
     }
 
     public void OnClick()
@@ -53,6 +58,8 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (!isPlaying) return; // Only hide on play
+
         // Hide its own Canvas Renderer
         GetComponent<CanvasRenderer>().SetAlpha(0);
         foreach (Transform child in transform)
