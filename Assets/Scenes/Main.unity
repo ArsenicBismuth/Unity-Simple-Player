@@ -597,6 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: e4b7ccd8da85c104db58fe3cab50fd92, type: 2}
   videoName: 
+  videoSlider: {fileID: 973669320}
 --- !u!1 &715532069
 GameObject:
   m_ObjectHideFlags: 0

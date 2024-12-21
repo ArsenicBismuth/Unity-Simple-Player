@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using LibVLCSharp;
 using SFB;
@@ -12,6 +13,7 @@ public class VLCPlayer : MonoBehaviour
 
     [SerializeField] Material mat;
     [SerializeField] string videoName;
+    [SerializeField] Slider videoSlider;
     LibVLC _libVLC;
     public MediaPlayer _mediaPlayer;
     const int seekTimeDelta = 5000;
@@ -38,6 +40,7 @@ public class VLCPlayer : MonoBehaviour
     public void LoadVideo(string[] paths)
     {
         if (paths.Length == 0) return;
+        if (playing) Stop();
         videoName = paths[0];
         PlayPause();
     }
@@ -96,7 +99,7 @@ public class VLCPlayer : MonoBehaviour
         }
     }
 
-    public void Stop ()
+    public void Stop()
     {
         Debug.Log ("[VLC] Stopping Player !");
 
@@ -104,8 +107,8 @@ public class VLCPlayer : MonoBehaviour
         _mediaPlayer?.Stop();
         
         // there is no need to dispose every time you stop, but you should do so when you're done using the mediaplayer and this is how:
-        // _mediaPlayer?.Dispose(); 
-        // _mediaPlayer = null;
+        _mediaPlayer?.Dispose(); 
+        _mediaPlayer = null;
         mat.mainTexture = null;
         tex = null;
     }
@@ -141,6 +144,10 @@ public class VLCPlayer : MonoBehaviour
             {
                 tex.UpdateExternalTexture(texptr);
             }
+        }
+        
+        if (videoSlider && _mediaPlayer.Length != 0) {
+            videoSlider.SetValueWithoutNotify(((float)_mediaPlayer.Time / _mediaPlayer.Length));
         }
     }
 }
