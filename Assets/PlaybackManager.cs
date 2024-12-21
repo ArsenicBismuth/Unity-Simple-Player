@@ -16,6 +16,7 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] UnityEvent pauseFunc;
     [SerializeField] UnityEvent openVideoFunc;
     [SerializeField] UnityEvent<float> seekFunc;
+    [SerializeField] UnityEvent<float> volumeFunc;
 
     bool isPlaying = false;
 
@@ -52,6 +53,11 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnSeek(float fraction)
     {
         seekFunc.Invoke(fraction);
+    }
+
+    public void OnVolume(float volume)
+    {
+        volumeFunc.Invoke(volume);
     }
     
 

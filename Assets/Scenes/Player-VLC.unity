@@ -545,6 +545,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1154378536}
     m_Modifications:
+    - target: {fileID: 1600889057984577451, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600889057984577451, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600889057984577451, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3459913003269400224, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -570,9 +582,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 680244949}
     - target: {fileID: 4338197970442750814, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: volumeFunc.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 680244949}
+    - target: {fileID: 4338197970442750814, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
       propertyPath: openVideoFunc.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 680244949}
+    - target: {fileID: 5447761304952120816, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447761304952120816, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5970922981146994203, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
       propertyPath: m_Name
       value: Panel

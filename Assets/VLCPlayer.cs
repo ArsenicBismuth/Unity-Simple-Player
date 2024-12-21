@@ -134,6 +134,11 @@ public class VLCPlayer : MonoBehaviour
         tex = null;
     }
 
+    public void SetVolume(float volume)
+    {
+        _mediaPlayer.SetVolume((int)(volume * 100));
+    }
+
     void Update()
     {
         if(!playing) return;
