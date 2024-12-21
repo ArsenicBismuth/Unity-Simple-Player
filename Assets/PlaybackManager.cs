@@ -6,7 +6,6 @@ using TMPro;
 
 public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] GameObject videoManager;
     [SerializeField] TextMeshProUGUI playBtnText;
     [SerializeField] GameObject InfoPanel;
 
@@ -91,5 +90,10 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
         string sceneName = UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
         sceneName = System.IO.Path.GetFileNameWithoutExtension(sceneName);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
     }
 }
