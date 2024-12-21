@@ -183,20 +183,23 @@ Shader "Custom/Skybox/PanoramicInverted" {
             fixed4 frag (v2f i) : SV_Target
             {
     #ifdef _MAPPING_6_FRAMES_LAYOUT
-                float2 tc = ToCubeCoords(i.texcoord, i.layout, i.edgeSize, i.faceXCoordLayouts, i.faceYCoordLayouts, i.faceZCoordLayouts);
+        float2 tc = ToCubeCoords(i.texcoord, i.layout, i.edgeSize, i.faceXCoordLayouts, i.faceYCoordLayouts, i.faceZCoordLayouts);
     #else
-                float2 tc = ToRadialCoords(i.texcoord);
-                if (tc.x > i.image180ScaleAndCutoff[1])
-                    return half4(0,0,0,1);
-                tc.x = fmod(tc.x*i.image180ScaleAndCutoff[0], 1);
-                tc = (tc + i.layout3DScaleAndOffset.xy) * i.layout3DScaleAndOffset.zw;
+        float2 tc = ToRadialCoords(i.texcoord);
+        if (tc.x > i.image180ScaleAndCutoff[1])
+            return half4(0,0,0,1);
+        tc.x = fmod(tc.x*i.image180ScaleAndCutoff[0], 1);
+        tc = (tc + i.layout3DScaleAndOffset.xy) * i.layout3DScaleAndOffset.zw;
     #endif
     
-                half4 tex = tex2D (_MainTex, tc);
-                half3 c = DecodeHDR (tex, _MainTex_HDR);
-                c = c * _Tint.rgb * unity_ColorSpaceDouble.rgb;
-                c *= _Exposure;
-                return half4(c, 1);
+        // Invert the y-coordinate
+        tc.y = 1.0 - tc.y;
+    
+        half4 tex = tex2D (_MainTex, tc);
+        half3 c = DecodeHDR (tex, _MainTex_HDR);
+        c = c * _Tint.rgb * unity_ColorSpaceDouble.rgb;
+        c *= _Exposure;
+        return half4(c, 1);
             }
             ENDCG
         }
