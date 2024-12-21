@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using SFB;
 
-public class VideoManager : MonoBehaviour
+public class NativePlayer : MonoBehaviour
 {
     public VideoPlayer video;
     [SerializeField] Slider videoSlider;
