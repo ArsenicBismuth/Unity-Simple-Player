@@ -192,8 +192,9 @@ Shader "Custom/Skybox/PanoramicInverted" {
         tc = (tc + i.layout3DScaleAndOffset.xy) * i.layout3DScaleAndOffset.zw;
     #endif
     
-        // Invert the y-coordinate
+        // Invert the y-coordinate & x-coordinate
         tc.y = 1.0 - tc.y;
+        tc.x = 1.0 - tc.x;
     
         half4 tex = tex2D (_MainTex, tc);
         half3 c = DecodeHDR (tex, _MainTex_HDR);
