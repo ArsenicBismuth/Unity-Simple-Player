@@ -10,11 +10,7 @@ public class VideoManager : MonoBehaviour
     public VideoPlayer video;
     [SerializeField] Slider videoSlider;
     [SerializeField] string videoName;
-
-    void Start()
-    {
-        OpenVideo();
-    }
+    
     
     private void Update()
     {

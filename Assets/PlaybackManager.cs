@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using TMPro;
 
@@ -10,12 +11,13 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public string playText;
     public string pauseText;
+    [SerializeField] UnityEvent playFunc;
+    [SerializeField] UnityEvent pauseFunc;
 
-    VLCPlayer vlcPlayer;
+    public bool isPlaying = true;
 
     void Start()
     {
-        vlcPlayer = videoManager.GetComponent<VLCPlayer>();
         playBtnText.text = pauseText;
 
         GetComponent<CanvasRenderer>().SetAlpha(0);
@@ -24,16 +26,19 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnClick()
     {
-        if (vlcPlayer._mediaPlayer.IsPlaying)
+        if (isPlaying)
         {
-            vlcPlayer.PlayPause();
+            Debug.Log("Pause");
+            pauseFunc.Invoke();
             playBtnText.text = playText;
         }
         else
         {
-            vlcPlayer.PlayPause();
+            Debug.Log("Play");
+            playFunc.Invoke();
             playBtnText.text = pauseText;
         }
+        isPlaying = !isPlaying;
     }
     
     public void OnPointerEnter(PointerEventData eventData)
