@@ -39,26 +39,26 @@ public class VideoManager : MonoBehaviour
     private void Video_prepareCompleted(VideoPlayer source)
     {
         Debug.Log("Video loaded.");
-        PlayVideo();
+        Play();
     }
 
     //Methods for Buttons
-    public void PlayVideo()
+    public void Play()
     {
         if (!video.isPrepared) return ;
         video.Play();
     }
 
-    public void PauseVideo()
+    public void Pause()
     {
         if (!video.isPlaying) return;
         video.Pause();
     }
 
-    public void RestartVideo()
+    public void Restart()
     {
         if (!video.isPrepared) return ;
-        PauseVideo();
+        Pause();
         Seek(0);
     }
 
