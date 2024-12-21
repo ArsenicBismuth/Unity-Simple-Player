@@ -67,4 +67,13 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
             child.gameObject.SetActive(false);
         }
     }
+
+    public void ToggleScene()
+    {
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        int nextSceneIndex = (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1) % UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+        string sceneName = UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(nextSceneIndex);
+        sceneName = System.IO.Path.GetFileNameWithoutExtension(sceneName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
 }
