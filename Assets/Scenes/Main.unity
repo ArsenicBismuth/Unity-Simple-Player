@@ -509,8 +509,9 @@ GameObject:
   - component: {fileID: 680244947}
   - component: {fileID: 680244946}
   - component: {fileID: 680244948}
+  - component: {fileID: 680244949}
   m_Layer: 0
-  m_Name: Video Player Obj
+  m_Name: Video Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,13 +575,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680244945}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3632572ee3183f949b361a002d42661c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   video: {fileID: 680244946}
   videoSlider: {fileID: 973669320}
+  videoName: 
+--- !u!114 &680244949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680244945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c23d6ad67214da4d8b35e193ba3fd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: e4b7ccd8da85c104db58fe3cab50fd92, type: 2}
   videoName: 
 --- !u!1 &715532069
 GameObject:
@@ -673,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ca90b74db0556409524904bf93c6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoManagerObj: {fileID: 680244945}
+  videoManager: {fileID: 680244945}
   playBtnText: {fileID: 2140649838}
   playText: "\uE768"
   pauseText: "\uE769"
@@ -812,12 +827,12 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: -0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680244948}
-        m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
+      - m_Target: {fileID: 680244949}
+        m_TargetAssemblyTypeName: VLCPlayer, Assembly-CSharp
         m_MethodName: Seek
         m_Mode: 0
         m_Arguments:
@@ -827,7 +842,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!1 &993588935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,8 +1071,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680244948}
-        m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
+      - m_Target: {fileID: 680244949}
+        m_TargetAssemblyTypeName: VLCPlayer, Assembly-CSharp
         m_MethodName: OpenVideo
         m_Mode: 1
         m_Arguments:

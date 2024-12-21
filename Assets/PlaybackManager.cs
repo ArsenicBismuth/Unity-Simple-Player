@@ -5,17 +5,17 @@ using TMPro;
 
 public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] GameObject videoManagerObj;
+    [SerializeField] GameObject videoManager;
     [SerializeField] TextMeshProUGUI playBtnText;
 
     public string playText;
     public string pauseText;
 
-    VideoManager videoManager;
+    VLCPlayer vlcPlayer;
 
     void Start()
     {
-        videoManager = videoManagerObj.GetComponent<VideoManager>();
+        vlcPlayer = videoManager.GetComponent<VLCPlayer>();
         playBtnText.text = pauseText;
 
         GetComponent<CanvasRenderer>().SetAlpha(0);
@@ -24,14 +24,14 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnClick()
     {
-        if (videoManager.video.isPlaying)
+        if (vlcPlayer._mediaPlayer.IsPlaying)
         {
-            videoManager.PauseVideo();
+            vlcPlayer.PlayPause();
             playBtnText.text = playText;
         }
         else
         {
-            videoManager.PlayVideo();
+            vlcPlayer.PlayPause();
             playBtnText.text = pauseText;
         }
     }
