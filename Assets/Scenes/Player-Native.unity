@@ -518,6 +518,36 @@ MonoBehaviour:
   video: {fileID: 680244946}
   videoSlider: {fileID: 973669320}
   videoName: 
+  playFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6132237204838003134}
+        m_TargetAssemblyTypeName: PlaybackManager, Assembly-CSharp
+        m_MethodName: SetPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pauseFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6132237204838003134}
+        m_TargetAssemblyTypeName: PlaybackManager, Assembly-CSharp
+        m_MethodName: SetPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &680244949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +563,12 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: e4b7ccd8da85c104db58fe3cab50fd92, type: 2}
   videoName: 
   videoSlider: {fileID: 973669320}
+  playFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  pauseFunc:
+    m_PersistentCalls:
+      m_Calls: []
   Yaw: 0
   Pitch: 0
   Roll: 0
@@ -1114,6 +1150,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+--- !u!114 &6132237204838003134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4338197970442750814, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+  m_PrefabInstance: {fileID: 6132237204838003133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ca90b74db0556409524904bf93c6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

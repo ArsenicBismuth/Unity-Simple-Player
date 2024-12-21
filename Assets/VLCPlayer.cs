@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System;
 using LibVLCSharp;
 using SFB;
@@ -26,6 +27,9 @@ public class VLCPlayer : MonoBehaviour
     Texture2D tex = null;
     bool playing;
     bool is360;
+
+    [SerializeField] UnityEvent playFunc;
+    [SerializeField] UnityEvent pauseFunc;
 
     public float Yaw = 0;
     public float Pitch = 0;
@@ -95,7 +99,7 @@ public class VLCPlayer : MonoBehaviour
         }
         if (_mediaPlayer.IsPlaying)
         {
-            _mediaPlayer.Pause();
+            Pause();
         }
         else
         {
@@ -108,16 +112,18 @@ public class VLCPlayer : MonoBehaviour
                 Task.Run(() => CheckMeta(_mediaPlayer.Media));
             }
 
-            _mediaPlayer.Play();
+            Play();
         }
     }
 
     public void Play() {
         _mediaPlayer.Play();
+        playFunc.Invoke();
     }
 
     public void Pause() {
         _mediaPlayer.Pause();
+        pauseFunc.Invoke();
     }
 
     public void Stop()

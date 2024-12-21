@@ -27,26 +27,35 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnOpenVideo()
     {
         openVideoFunc.Invoke();
+    }
+
+    public void SetPlay()
+    {
+        // Invoked by the player
+        Debug.Log("Play");
         isPlaying = true;
         playBtnText.text = pauseText;
         Destroy(InfoPanel);
+    }
+
+    public void SetPause()
+    {
+        // Invoked by the player
+        Debug.Log("Pause");
+        isPlaying = false;
+        playBtnText.text = playText;
     }
 
     public void OnClick()
     {
         if (isPlaying)
         {
-            Debug.Log("Pause");
             pauseFunc.Invoke();
-            playBtnText.text = playText;
         }
         else
         {
-            Debug.Log("Play");
             playFunc.Invoke();
-            playBtnText.text = pauseText;
         }
-        isPlaying = !isPlaying;
     }
 
     public void OnSeek(float fraction)
