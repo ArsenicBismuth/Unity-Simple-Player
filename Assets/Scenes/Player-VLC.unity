@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 680244946}
   - component: {fileID: 680244948}
   - component: {fileID: 680244949}
+  - component: {fileID: 680244950}
   m_Layer: 0
   m_Name: Video Manager
   m_TagString: Untagged
