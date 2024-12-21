@@ -8,12 +8,14 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     [SerializeField] GameObject videoManager;
     [SerializeField] TextMeshProUGUI playBtnText;
+    [SerializeField] GameObject InfoPanel;
 
     public string playText;
     public string pauseText;
     [SerializeField] UnityEvent playFunc;
     [SerializeField] UnityEvent pauseFunc;
     [SerializeField] UnityEvent openVideoFunc;
+    [SerializeField] UnityEvent<float> seekFunc;
 
     bool isPlaying = false;
 
@@ -27,6 +29,7 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
         openVideoFunc.Invoke();
         isPlaying = true;
         playBtnText.text = pauseText;
+        Destroy(InfoPanel);
     }
 
     public void OnClick()
@@ -45,7 +48,14 @@ public class PlaybackManager : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
         isPlaying = !isPlaying;
     }
+
+    public void OnSeek(float fraction)
+    {
+        seekFunc.Invoke(fraction);
+    }
     
+
+    // Panel handling
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Show its own Canvas Renderer

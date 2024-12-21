@@ -986,6 +986,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 680244948}
     - target: {fileID: 4338197970442750814, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: seekFunc.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 680244948}
+    - target: {fileID: 4338197970442750814, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
       propertyPath: pauseFunc.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 680244948}
@@ -993,6 +997,10 @@ PrefabInstance:
       propertyPath: openVideoFunc.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 680244948}
+    - target: {fileID: 4338197970442750814, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
+      propertyPath: seekFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NativePlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5970922981146994203, guid: 22bdddda485f59f42af8e4897b0e0941, type: 3}
       propertyPath: m_Name
       value: Panel
