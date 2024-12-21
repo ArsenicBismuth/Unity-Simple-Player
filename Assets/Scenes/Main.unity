@@ -778,6 +778,37 @@ MonoBehaviour:
   playBtnText: {fileID: 2140649838}
   playText: "\uE768"
   pauseText: "\uE769"
+  playFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 680244949}
+        m_TargetAssemblyTypeName: VLCPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pauseFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 680244949}
+        m_TargetAssemblyTypeName: VLCPlayer, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  isPlaying: 1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
