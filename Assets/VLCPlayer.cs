@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using LibVLCSharp;
 using SFB;
+using System.Threading.Tasks;
 
 /// this class serves as an example on how to configure playback in Unity with VLC for Unity using LibVLCSharp.
 /// for libvlcsharp usage documentation, please visit https://code.videolan.org/videolan/LibVLCSharp/-/blob/master/docs/home.md
@@ -24,6 +25,12 @@ public class VLCPlayer : MonoBehaviour
     const int seekTimeDelta = 5000;
     Texture2D tex = null;
     bool playing;
+    bool is360;
+
+    public float Yaw = 0;
+    public float Pitch = 0;
+    public float Roll = 0;
+    public float fov = 360;
     
     void Awake()
     {
@@ -98,6 +105,7 @@ public class VLCPlayer : MonoBehaviour
             {
                 // playing remote media
                 _mediaPlayer.Media = new Media(videoName);
+                Task.Run(() => CheckMeta(_mediaPlayer.Media));
             }
 
             _mediaPlayer.Play();
@@ -154,5 +162,33 @@ public class VLCPlayer : MonoBehaviour
         if (videoSlider && _mediaPlayer.Length != 0) {
             videoSlider.SetValueWithoutNotify(((float)_mediaPlayer.Time / _mediaPlayer.Length));
         }
+    }
+
+    async void CheckMeta(Media media)
+    {
+        var result = await media.ParseAsync(_libVLC, MediaParseOptions.ParseNetwork);
+        var trackList = media.TrackList(TrackType.Video);
+        is360 = trackList[0].Data.Video.Projection == VideoProjection.Equirectangular;
+        Debug.Log(trackList[0].Data.Video);
+        
+        if(is360) {
+            Debug.Log("The video is a 360 video, adjusting the viewport.");
+            UpdateViewport();
+        } else {
+            Debug.Log("The video is not a 360, no adjustments will be made");
+        }
+
+        trackList.Dispose();
+    }
+
+    void OnGUI()
+    {
+        if(is360) {
+            UpdateViewport();
+        }
+    }
+
+    void UpdateViewport() {
+        _mediaPlayer.UpdateViewpoint(Yaw, Pitch, Roll, fov);
     }
 }
