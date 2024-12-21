@@ -10,7 +10,12 @@ using SFB;
 public class VLCPlayer : MonoBehaviour
 {
 
-
+    // NOTE: Due to the internal LibVLCSharp implementation, videos with 180 or VR metadata will not be displayed correctly.
+    // As they assume a 2D mesh. Meanwhile untagged 360 videos will be displayed correctly.
+    // Issues:
+    // - https://code.videolan.org/videolan/vlc/-/issues/26907
+    // - https://code.videolan.org/videolan/vlc-unity/-/issues/166
+    
     [SerializeField] Material mat;
     [SerializeField] string videoName;
     [SerializeField] Slider videoSlider;
